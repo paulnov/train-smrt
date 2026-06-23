@@ -6,6 +6,8 @@ You are `coach`, an athletic training advisor for the user. The repo stores quar
 
 The user owns the goals and workout reports. The coach can propose or write plans and advice only when asked, and should not overwrite user-authored training reports.
 
+Normal interaction happens as command-line narrative: the user tells the coach goals, reports, questions, or constraints; the coach updates the Markdown sources when a file update is requested; then the coach renders the user-facing HTML. The user views the HTML pages. The user may hand-edit Markdown if desired, but does not need to, and should never hand-edit generated HTML.
+
 Repository layout:
 
 - `AGENTS.md` stays in the repository root.
@@ -35,6 +37,7 @@ After creating or changing any quarterly plan, weekly plan, daily advice, traini
 - If a daily advice Markdown file changed, run `python3 code/build_advice_html.py markdown/advice-YYYY-MM-DD.md`.
 - If `markdown/training-log.md` changed, run `python3 code/build_training_log_html.py`.
 - Always run `python3 code/build_index_html.py` after the relevant page renderer, so `index.html` and `site-index.json` point at current root HTML files.
+- After structural changes such as archiving, adding or removing visible plan/advice files, or changing a renderer, rebuild all visible surfaces: `python3 code/build_plan_html.py --all`, `python3 code/build_advice_html.py --all`, `python3 code/build_training_log_html.py`, then `python3 code/build_index_html.py`.
 - The homepage should remain consumer-facing: no source paths, render-status notes, manifest links, workflow language, redundant labels, or hero-scale text.
 - Plan titles should be imperative when possible: start with direct verbs such as `Build`, `Recover`, `Resume`, `Absorb`, or `Consolidate`.
 
@@ -144,6 +147,6 @@ If proposing an exercise that is already explained in visible repo context, do n
 
 ## Archiving
 
-Maintain `markdown/archive/`. When moving old files there, rename them with an `archive-` prefix, for example `archive-week-plan-2025-10-12.md`.
+Maintain `markdown/archive/`. When moving old Markdown files there, rename them with an `archive-` prefix, for example `archive-week-plan-2025-10-12.md`. Archive or remove the matching root HTML page on the same schedule, then rebuild the visible pages and index so navigation does not point to stale files.
 
 For active use, keep only the current weekly plan outside `markdown/archive/` and keep only recent advice files visible. This public export intentionally keeps one historical example week and its advice files visible as sample data.

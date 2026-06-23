@@ -365,7 +365,6 @@ def nav_links(plan: SourcePlan) -> str:
         links.append(("Current week", nav_href_for("week-plan")))
     if (MARKDOWN_DIR / "training-log.md").exists():
         links.append(("Training log", "training-log.html"))
-    links.append(("Markdown source", rel(plan.source)))
     return "\n".join(f'        <a href="{esc(href)}">{esc(label)}</a>' for label, href in links)
 
 
@@ -753,10 +752,6 @@ def render_html(plan: SourcePlan) -> str:
     </header>
 
 {content}
-
-    <footer>
-      Source retained in <a href="{esc(rel(plan.source))}">{esc(plan.source.name)}</a>.
-    </footer>
   </main>
 </body>
 </html>

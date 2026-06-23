@@ -128,8 +128,6 @@ def render_html(entries: list[Entry], source: Path, output: Path) -> str:
     rendered_entries = "\n".join(
         entry_html(entry, index, initial_visible) for index, entry in enumerate(newest_first)
     )
-    source_href = relative_href(source, output)
-    script_href = relative_href(Path(__file__).resolve(), output)
     week_href = latest_plan_href("week-plan", output)
     quarter_href = latest_plan_href("quarter-plan", output)
     return f"""<!doctype html>
@@ -370,7 +368,6 @@ def render_html(entries: list[Entry], source: Path, output: Path) -> str:
       <nav aria-label="Related files">
         <a href="{esc(week_href)}">Current week</a>
         <a href="{esc(quarter_href)}">Quarterly plan</a>
-        <a href="{esc(source_href)}">Markdown source</a>
       </nav>
     </header>
 
@@ -383,10 +380,6 @@ def render_html(entries: list[Entry], source: Path, output: Path) -> str:
       <button type="button" id="collapse" class="secondary">Collapse to latest 5</button>
       <span class="count" id="entry-count"></span>
     </div>
-
-    <footer>
-      Generated from <a href="{esc(source_href)}">{esc(source_href)}</a> by <a href="{esc(script_href)}">code/build_training_log_html.py</a>.
-    </footer>
   </main>
 
   <script>

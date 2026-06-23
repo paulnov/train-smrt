@@ -177,7 +177,6 @@ def render_html(source: Path, output: Path) -> str:
     title = read_title(lines, source)
     date_key = advice_date_key(source)
     advice_date = dt.date.fromisoformat(date_key)
-    source_href = relative_href(source)
     week_href = current_week_href(advice_date)
     body = markdown_body(lines)
     return f"""<!doctype html>
@@ -345,15 +344,10 @@ def render_html(source: Path, output: Path) -> str:
         <a href="index.html">Training plan</a>
         <a href="{esc(week_href)}">Current week</a>
         <a href="training-log.html">Training log</a>
-        <a href="{esc(source_href)}">Markdown source</a>
       </nav>
     </header>
 
 {body}
-
-    <footer>
-      Source retained in <a href="{esc(source_href)}">{esc(source.name)}</a>.
-    </footer>
   </main>
 </body>
 </html>
