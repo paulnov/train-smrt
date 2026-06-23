@@ -43,22 +43,19 @@ This is still in a state of flux. The first iteration of this project was all ma
 
 ## Things that worked well
 
-**Tell the coach how you felt.** My initial tendency was always to push harder than the plan called for. More is better, right? Every time I did this, the coach dialed back my next day's workout for more recovery. I'm sure this reduced my injury risk and gradually taught me to actually follow the advice.
+**Tell the coach how you felt.** My initial tendency was always to push harder than the plan called for. More is better, right? Every time I did this, the coach dialed back my next day's workout for more recovery. I'm sure this reduced my injury risk and gradually taught me to actually follow the advice. Feeling sick, concerned about injury risk, pushed your HR past the targets, put it all in your report.
 
 **Ask why.** I learned a ton about training physiology through this plan. After decades of sub-optimal training I finally learned why "go as hard as you can every time you're out there" isn't the best.
 
-**Put detailed reports in the weekly plans.** The weekly plans should have a section for you to report how you did. It's more useful to put detailed info here, such as feeling sick, injury risk, or pushed HR, vs. in the prompt, so that it's visible for future instances of the coach.
+**Update the reference files.** There are placeholder files in `markdown/` for you to add info about race history, HR zones, exercise catalogs, etc. These can all finetune the advice you get. The more permanent info you give the coach, the less you need to explain each time. Common knowledge is good. You can say "HR went to 165 in the last tempo" and the coach knows what this means.
 
-**Keep the HTML current.** The root HTML pages make the repo easier to read quickly, while Markdown remains easy for an assistant to update.
+**Ask the AI to take stock of the whole repo.** The custom instructions can get out of date or contradictory, it's good to do a cleanup once in a while.
 
-## Easy things to improve
+## Things that could be improved
 
-- **Add private reference files.** For HR zones, race history, exercise catalogs, or personal notes on what to wear in which temperatures, then tell the coach in `AGENTS.md` when to consult them. The more permanent info you give the coach, the less you need to explain each time. Common knowledge is good. You can say "HR went to 165 in the last tempo" and the coach knows what this means.
-- **Expand the exercise notes.** `markdown/exercise-notes.md` is useful for the coach to know whether you already know what "ankle rocks" are etc., so it explains the exercises the first time but not again.
-- **Tighten the glossary.** `markdown/glossary.md` should hold your abbreviations and preferred terminology.
+- **Lock down the formats you like.** The formats of the weekly plans drift, because there isn't a template, I'm constantly asking for changes, and the AI is often adding weird things and lingo and then propagating them into future plans. Once you get a format you like, lock it down into a template and instruct the agent to use it everytime. This sort of works, sometimes.
+- **Link to Strava/Garmin (?)** I occasionally copy/pasted my splits and HR info into the Codex window if I wanted more analysis. It would be nice to pull these directly from Strava or Garmin. It might work. But you really need to stop the AI from treating the data as the source of truth, because it's meaningless without the narrative context. So it might be better just to summarize the parts that you think are useful or want feedback on. The AI isn't great at prioritizing or ignoring information, so if you stop for ice cream it will keep on acting like you had a terrible split.
+- **Link to resting HR/HRV.** They say resting HR provides advance info on recovery / illness. So it would be cool if the coach just had this info in the context without you needing to share it.
 - **Improve the HTML UI?** Would this be better in a web app with text boxes? I'm not sure, I kind of like the back-and-forth with the coach in the Codex window. YMMV.
 
-## Harder things to improve
-
-- **Link to Strava/Garmin.** I started copy/pasting my splits and HR info into the Codex window. It would be nice to pull these directly from Strava or Garmin. As noted above, it still seems essential to me to pair that info with narrative context, so I don't know how helpful this would actually be. The AI isn't great at ignoring information, so if you stop for ice cream it will think you had a terrible split.
-- **Link to resting HR/HRV.** They say resting HR provides advance info on recovery / illness. So it would be cool if the coach just had this info in the context without you needing to share it.
+- **If you build on this, I would love to hear from you.**
