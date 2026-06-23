@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <style>
+    text {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+  <circle cx="128" cy="128" r="116" fill="#ffec9e" stroke="#c9a33f" stroke-width="10"/>
+  <text x="128" y="154" text-anchor="middle" dominant-baseline="middle" font-size="156">🦿</text>
+</svg>

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training Log</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f1;
+      --paper: #fffdf7;
+      --ink: #20231f;
+      --muted: #686d63;
+      --line: #d8d5ca;
+      --accent: #2f6f5f;
+      --accent-2: #8a5a24;
+      --soft: #ebe7da;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 44px 0 64px;
+    }
+
+    header {
+      padding: 20px 0 30px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(1.55rem, 2.3vw, 2.25rem);
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      padding: 18px 0 0;
+      font-size: 0.93rem;
+      font-weight: 700;
+    }
+
+    .entries {
+      padding-top: 16px;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .entry[hidden] {
+      display: none;
+    }
+
+    .entry-head time {
+      color: var(--accent-2);
+      font-size: 0.86rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .entry-head h2 {
+      margin: 7px 0 0;
+      font-size: 1.35rem;
+      line-height: 1.12;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 13px;
+      margin: 0;
+    }
+
+    .field {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 20px;
+      padding-top: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .field:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    dt {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      padding-top: 24px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      min-height: 42px;
+      padding: 0 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    button[hidden] {
+      display: none;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        width: min(100% - 28px, 1080px);
+        padding-top: 24px;
+      }
+
+      .entry,
+      .field {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .entry {
+        padding: 24px 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      nav,
+      .controls {
+        display: none;
+      }
+
+      .entry {
+        break-inside: avoid;
+      }
+
+      .entry[hidden] {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="eyebrow">Training log</p>
+      <h1>Recent training, parsed from the durable log fields.</h1>
+      <p class="subtitle">Newest entries are shown first. The default view shows the latest five sessions; expand in ten-entry blocks for older history.</p>
+      <nav aria-label="Related files">
+        <a href="week-plan-2025-11-10.html">Current week</a>
+        <a href="quarter-plan-2025-10.html">Quarterly plan</a>
+        <a href="markdown/training-log.md">Markdown source</a>
+      </nav>
+    </header>
+
+    <section class="entries" aria-live="polite">
+
+      <article class="entry" data-entry-index="0">
+        <div class="entry-head">
+          <time datetime="2025-11-16">2025-11-16</time>
+          <h2>Threshold ladder plus core</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Sunday 3x8 min LT with floats plus mobility/core.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Followed plan. Terrain and hilliness was variable so hard to compare exactly. LT 1: GAP 4:09 HR 159 LT 2: GAP 4:12 HR 162 (but hillier) LT 3: GAP 4:25 Pace 4:19 HR 159, but a bunch on grass / trail / gravel so harder to compare. All three featured all time between 158-164, with a lot in the 162-164 range. Float 1: 4:59 GAP mean HR 151 end HR 140 Float 2: 4:52 GAP mean HR 153 end HR 147 Did the mobility and core.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Threshold run.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>High, but controlled.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Completed.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>Threshold control was solid after Saturday&#x27;s long run, supporting the next week as a race-specific sharpening block rather than a recovery reset.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="1">
+        <div class="entry-head">
+          <time datetime="2025-11-15">2025-11-15</time>
+          <h2>Long aerobic progression</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Saturday 80 min aerobic with final 15 min uptempo.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Trail run, so went based on HR not pace, since pace was variable based on terrain.. Lap 1: 1h11m, 11.5km avg HR 136, hitting 150 only for a 90s climb. 50g carbs after 30m Lap 2: 15m, 2.9km, avg HR 150, steady in the 145-155 zone. Lap 3: 2 min cooldown, HR steadily dropping to 133.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Long run / aerobic progression.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>Moderate to high, with controlled HR and useful fueling.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Completed.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>LT1 durability and progression control were strong enough to support the planned Sunday threshold ladder.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="2">
+        <div class="entry-head">
+          <time datetime="2025-11-14">2025-11-14</time>
+          <h2>Restoration plus strength</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Friday restoration plus total-body maintenance strength and core.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Plan followed except core, which I didn&#x27;t notice. Took the run super chill, Feeling good.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Easy run plus strength.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>Low to moderate.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Partial.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>The day restored movement and added strength without meaningful extra run stress; core was missed.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="3">
+        <div class="entry-head">
+          <time datetime="2025-11-13">2025-11-13</time>
+          <h2>Trimmed economy reps</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Thursday economy session, revised by advice to 10x200 m economy reps.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Followed the revised plan in the advice doc, with 10x economy reps, 3km warmup and 3km cooldown. Interval times 44-46s, Floats 1:00-1:05. Legs felt fine before, during, but definitely fatigued now. I def felt tired during the 3.2km run home after the track workout. GI symptoms mostly gone but still not quite 100%, and some leg soreness. Interval HR peaked at 160 for the first 5, 165-168 for the next 5. Floats were 140-145 for first 5, then 151/153/155/153, oops. Concentrated on form, which felt good throughout. Sorry i find it hard to motivate mobility so i didn&#x27;t do much.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Economy / speed-endurance run.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>Moderate to high, with late float HR drift and post-session fatigue.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Modified.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>Mechanics and pace were good, but the reduced-volume choice was justified by illness residue and leg soreness.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="4">
+        <div class="entry-head">
+          <time datetime="2025-11-12">2025-11-12</time>
+          <h2>Easy trail recovery with illness signal</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Wednesday recovery run plus upper/core strength.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Ran ~50 minutes. Been feeling a bit weird today, some definite GI issues and maybe getting sick. So I took it pretty slow, trail run with walking on hills some bushwhacking. I&#x27;d estimate HR between 100-130 for 50 minutes. No weights, going to try to get some rest.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Easy run.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>Low to moderate, with systemic illness/GI signal.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Modified.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>Recovery emphasis was appropriate; strength was deferred because illness risk mattered more than extra load.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="5" hidden>
+        <div class="entry-head">
+          <time datetime="2025-11-11">2025-11-11</time>
+          <h2>VO2 development intervals</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Tuesday 5x3 min at 3-5 km effort with 2 min floats.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>Forgot Garmin so no HR data. But ran 4x3 mins at 3:45-4:00 pace, last segment up a huge hill so slower but just as hard. Floats in 4:30-5:00. It felt hard but not at my limit, until the 5th climbing effort which completely destroyed me --- i probably didn&#x27;t slow enough on the climb. Warmup, cooldown, strides as planned. No time for lifting/core.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>VO2 / severe-intensity run.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>High, mainly because the uphill final rep overshot the intended control.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Modified.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>The intended stimulus was achieved, but follow-up work should protect recovery and avoid stacking more uncontrolled intensity.</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="entry" data-entry-index="6" hidden>
+        <div class="entry-head">
+          <time datetime="2025-11-10">2025-11-10</time>
+          <h2>Full-body weights, no run</h2>
+        </div>
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Plan target</dt>
+            <dd>Week of 2025-11-10, Monday easy run plus optional mobility after morning Body Beast.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Raw report</dt>
+            <dd>No running, did full-body weights in the morning.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Session type</dt>
+            <dd>Lift.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Load signal</dt>
+            <dd>Moderate, with running skipped.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Plan match</dt>
+            <dd>Modified.</dd>
+          </div>
+
+          <div class="field">
+            <dt>Training implication</dt>
+            <dd>Strength was banked early, but the planned aerobic support run did not happen.</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <div class="controls">
+      <button type="button" id="show-more">Show 10 more</button>
+      <button type="button" id="collapse" class="secondary">Collapse to latest 5</button>
+      <span class="count" id="entry-count"></span>
+    </div>
+
+    <footer>
+      Generated from <a href="markdown/training-log.md">markdown/training-log.md</a> by <a href="code/build_training_log_html.py">code/build_training_log_html.py</a>.
+    </footer>
+  </main>
+
+  <script>
+    const entries = Array.from(document.querySelectorAll(".entry"));
+    const showMore = document.getElementById("show-more");
+    const collapse = document.getElementById("collapse");
+    const count = document.getElementById("entry-count");
+    const initialVisible = 5;
+    const increment = 10;
+    let visible = Math.min(initialVisible, entries.length);
+
+    function render() {
+      entries.forEach((entry, index) => {
+        entry.hidden = index >= visible;
+      });
+      const hidden = Math.max(entries.length - visible, 0);
+      count.textContent = `${Math.min(visible, entries.length)} of ${entries.length} entries shown`;
+      showMore.hidden = hidden === 0;
+      showMore.textContent = hidden > increment ? "Show 10 more" : `Show ${hidden} more`;
+      collapse.hidden = visible <= initialVisible;
+    }
+
+    showMore.addEventListener("click", () => {
+      visible = Math.min(visible + increment, entries.length);
+      render();
+    });
+
+    collapse.addEventListener("click", () => {
+      visible = Math.min(initialVisible, entries.length);
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training plan</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f1;
+      --ink: #171b19;
+      --muted: #666f68;
+      --line: #d9d6cb;
+      --accent: #2f6f5f;
+      --accent-2: #8a5a24;
+      --focus: #356f95;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(880px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 34px;
+    }
+
+    header {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-title {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 850;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .plan-stack {
+      padding-top: 18px;
+    }
+
+    .plan-row {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) 185px;
+      gap: 18px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plan-row:hover .row-main,
+    .log-list a:hover span {
+      color: var(--accent);
+    }
+
+    .row-label,
+    .section-label {
+      color: var(--accent-2);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .row-main {
+      font-size: 1.08rem;
+      font-weight: 760;
+      line-height: 1.28;
+    }
+
+    .row-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+
+    .log-section {
+      padding-top: 28px;
+    }
+
+    .log-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .log-list a {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .log-list time {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .log-list span {
+      font-size: 0.98rem;
+      font-weight: 650;
+    }
+
+    .build-stamp {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      opacity: 0.45;
+      text-align: right;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, 880px);
+        padding-top: 24px;
+      }
+
+      .plan-row,
+      .log-list a {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .row-meta {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="site-title">Training plan</p>
+    </header>
+
+    <section class="plan-stack" aria-label="Current training plan" id="plan-stack">
+        <a class="plan-row" href="quarter-plan-2025-10.html">
+          <span class="row-label">Current quarterly plan</span>
+          <span class="row-main">Build a sub-20 5k, nordic readiness, and strength PRs</span>
+          <span class="row-meta">October 15-December 15, 2025</span>
+        </a>
+        <a class="plan-row" href="week-plan-2025-11-10.html">
+          <span class="row-label">Current weekly plan</span>
+          <span class="row-main">Week of 2025-11-10 — VO₂ Development &amp; Economy</span>
+          <span class="row-meta">November 10-16, 2025</span>
+        </a>
+        <a class="plan-row" href="advice-2025-11-16.html">
+          <span class="row-label">Last daily plan</span>
+          <span class="row-main">November 16, 2025</span>
+          <span class="row-meta"></span>
+        </a>
+    </section>
+
+    <section class="log-section" aria-label="Recent training log">
+      <div class="section-label">Recent log</div>
+      <ol class="log-list" id="log-list">
+        <li>
+          <a href="training-log.html">
+            <time datetime="2025-11-16">November 16, 2025</time>
+            <span>Threshold ladder plus core</span>
+          </a>
+        </li>
+        <li>
+          <a href="training-log.html">
+            <time datetime="2025-11-15">November 15, 2025</time>
+            <span>Long aerobic progression</span>
+          </a>
+        </li>
+        <li>
+          <a href="training-log.html">
+            <time datetime="2025-11-14">November 14, 2025</time>
+            <span>Restoration plus strength</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="build-stamp">Built June 23, 2026</footer>
+  </main>
+
+  <script type="application/json" id="site-manifest">
+{
+  "active": {
+    "advice": {
+      "display_date": "November 16, 2025",
+      "display_range": "November 16, 2025",
+      "end": "2025-11-16",
+      "href": "advice-2025-11-16.html",
+      "kind": "advice",
+      "start": "2025-11-16",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-16"
+    },
+    "quarter-plan": {
+      "display_date": "October 15, 2025",
+      "display_range": "October 15-December 15, 2025",
+      "end": "2025-12-15",
+      "href": "quarter-plan-2025-10.html",
+      "kind": "quarter-plan",
+      "start": "2025-10-15",
+      "suffix": "",
+      "theme": "Build a sub-20 5k, nordic readiness, and strength PRs"
+    },
+    "week-plan": {
+      "display_date": "November 10, 2025",
+      "display_range": "November 10-16, 2025",
+      "end": "2025-11-16",
+      "href": "week-plan-2025-11-10.html",
+      "kind": "week-plan",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy"
+    }
+  },
+  "files": [
+    {
+      "display_date": "November 10, 2025",
+      "display_range": "November 10, 2025",
+      "end": "2025-11-10",
+      "href": "advice-2025-11-10.html",
+      "kind": "advice",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-10"
+    },
+    {
+      "display_date": "November 13, 2025",
+      "display_range": "November 13, 2025",
+      "end": "2025-11-13",
+      "href": "advice-2025-11-13.html",
+      "kind": "advice",
+      "start": "2025-11-13",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-13"
+    },
+    {
+      "display_date": "November 14, 2025",
+      "display_range": "November 14, 2025",
+      "end": "2025-11-14",
+      "href": "advice-2025-11-14.html",
+      "kind": "advice",
+      "start": "2025-11-14",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-14"
+    },
+    {
+      "display_date": "November 15, 2025",
+      "display_range": "November 15, 2025",
+      "end": "2025-11-15",
+      "href": "advice-2025-11-15.html",
+      "kind": "advice",
+      "start": "2025-11-15",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-15"
+    },
+    {
+      "display_date": "November 16, 2025",
+      "display_range": "November 16, 2025",
+      "end": "2025-11-16",
+      "href": "advice-2025-11-16.html",
+      "kind": "advice",
+      "start": "2025-11-16",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-16"
+    },
+    {
+      "display_date": "October 15, 2025",
+      "display_range": "October 15-December 15, 2025",
+      "end": "2025-12-15",
+      "href": "quarter-plan-2025-10.html",
+      "kind": "quarter-plan",
+      "start": "2025-10-15",
+      "suffix": "",
+      "theme": "Build a sub-20 5k, nordic readiness, and strength PRs"
+    },
+    {
+      "display_date": "November 10, 2025",
+      "display_range": "November 10-16, 2025",
+      "end": "2025-11-16",
+      "href": "week-plan-2025-11-10.html",
+      "kind": "week-plan",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy"
+    }
+  ],
+  "training_log": {
+    "entries": [
+      {
+        "date": "2025-11-16",
+        "display_date": "November 16, 2025",
+        "href": "training-log.html",
+        "label": "Threshold ladder plus core"
+      },
+      {
+        "date": "2025-11-15",
+        "display_date": "November 15, 2025",
+        "href": "training-log.html",
+        "label": "Long aerobic progression"
+      },
+      {
+        "date": "2025-11-14",
+        "display_date": "November 14, 2025",
+        "href": "training-log.html",
+        "label": "Restoration plus strength"
+      }
+    ],
+    "href": "training-log.html",
+    "latest": {
+      "date": "2025-11-16",
+      "display_date": "November 16, 2025",
+      "href": "training-log.html",
+      "label": "Threshold ladder plus core"
+    }
+  }
+}
+  </script>
+  <script>
+    const manifest = JSON.parse(document.getElementById("site-manifest").textContent);
+    const files = manifest.files || [];
+
+    function localDateString(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    const today = localDateString(new Date());
+
+    function byKind(kind) {
+      return files.filter((file) => file.kind === kind);
+    }
+
+    function choose(kind) {
+      const candidates = byKind(kind);
+      if (!candidates.length) return null;
+
+      const covering = candidates.filter((file) => file.start <= today && today <= file.end);
+      if (covering.length) {
+        return covering.sort(compareFiles)[covering.length - 1];
+      }
+
+      const past = candidates.filter((file) => file.start <= today);
+      if (past.length) {
+        return past.sort(compareFiles)[past.length - 1];
+      }
+
+      return candidates.sort(compareFiles)[0];
+    }
+
+    function compareFiles(left, right) {
+      const leftKey = `${left.start}|${left.end}|${left.suffix || ""}`;
+      const rightKey = `${right.start}|${right.end}|${right.suffix || ""}`;
+      return leftKey.localeCompare(rightKey);
+    }
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[character]));
+    }
+
+    function planRow(label, file, title, meta) {
+      const href = file?.href || "#";
+      return `<a class="plan-row" href="${escapeHtml(href)}">
+        <span class="row-label">${escapeHtml(label)}</span>
+        <span class="row-main">${escapeHtml(title)}</span>
+        <span class="row-meta">${escapeHtml(meta)}</span>
+      </a>`;
+    }
+
+    function logRows(entries, fallbackHref) {
+      if (!entries?.length) {
+        return `<li><a href="${escapeHtml(fallbackHref || "#")}"><time></time><span>No training logged yet</span></a></li>`;
+      }
+      return entries.map((entry) => `<li>
+        <a href="${escapeHtml(entry.href || fallbackHref || "#")}">
+          <time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.display_date)}</time>
+          <span>${escapeHtml(entry.label)}</span>
+        </a>
+      </li>`).join("");
+    }
+
+    const active = {
+      quarter: choose("quarter-plan") || manifest.active?.["quarter-plan"],
+      week: choose("week-plan") || manifest.active?.["week-plan"],
+      advice: choose("advice") || manifest.active?.advice
+    };
+
+    document.getElementById("plan-stack").innerHTML = [
+      planRow("Current quarterly plan", active.quarter, active.quarter?.theme || "No current quarterly plan", active.quarter?.display_range || ""),
+      planRow("Current weekly plan", active.week, active.week?.theme || "No current weekly plan", active.week?.display_range || ""),
+      planRow("Last daily plan", active.advice, active.advice?.display_date || "No daily advice yet", "")
+    ].join("");
+
+    document.getElementById("log-list").innerHTML =
+      logRows(manifest.training_log?.entries, manifest.training_log?.href);
+  </script>
+</body>
+</html>

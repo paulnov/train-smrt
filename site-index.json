@@ -1,0 +1,228 @@
+{
+  "active": {
+    "advice": {
+      "date_key": "2025-11-16",
+      "dates": [
+        "2025-11-16"
+      ],
+      "display_date": "November 16, 2025",
+      "display_range": "November 16, 2025",
+      "end": "2025-11-16",
+      "href": "advice-2025-11-16.html",
+      "html": "advice-2025-11-16.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-16.md",
+      "start": "2025-11-16",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-16",
+      "title": "Advice \u2014 2025-11-16"
+    },
+    "quarter-plan": {
+      "date_key": "2025-10",
+      "dates": [],
+      "display_date": "October 15, 2025",
+      "display_range": "October 15-December 15, 2025",
+      "end": "2025-12-15",
+      "href": "quarter-plan-2025-10.html",
+      "html": "quarter-plan-2025-10.html",
+      "html_exists": true,
+      "kind": "quarter-plan",
+      "source": "markdown/quarter-plan-2025-10.md",
+      "start": "2025-10-15",
+      "suffix": "",
+      "theme": "Build a sub-20 5k, nordic readiness, and strength PRs",
+      "title": "About me"
+    },
+    "week-plan": {
+      "date_key": "2025-11-10",
+      "dates": [
+        "2025-11-10",
+        "2025-11-11",
+        "2025-11-12",
+        "2025-11-13",
+        "2025-11-14",
+        "2025-11-15",
+        "2025-11-16"
+      ],
+      "display_date": "November 10, 2025",
+      "display_range": "November 10-16, 2025",
+      "end": "2025-11-16",
+      "href": "week-plan-2025-11-10.html",
+      "html": "week-plan-2025-11-10.html",
+      "html_exists": true,
+      "kind": "week-plan",
+      "source": "markdown/week-plan-2025-11-10.md",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy",
+      "title": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy"
+    }
+  },
+  "build_date": "2026-06-23",
+  "files": [
+    {
+      "date_key": "2025-11-10",
+      "dates": [
+        "2025-11-10"
+      ],
+      "display_date": "November 10, 2025",
+      "display_range": "November 10, 2025",
+      "end": "2025-11-10",
+      "href": "advice-2025-11-10.html",
+      "html": "advice-2025-11-10.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-10.md",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-10",
+      "title": "Advice \u2014 2025-11-10"
+    },
+    {
+      "date_key": "2025-11-13",
+      "dates": [
+        "2025-11-13"
+      ],
+      "display_date": "November 13, 2025",
+      "display_range": "November 13, 2025",
+      "end": "2025-11-13",
+      "href": "advice-2025-11-13.html",
+      "html": "advice-2025-11-13.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-13.md",
+      "start": "2025-11-13",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-13",
+      "title": "Advice \u2014 2025-11-13"
+    },
+    {
+      "date_key": "2025-11-14",
+      "dates": [
+        "2025-11-14"
+      ],
+      "display_date": "November 14, 2025",
+      "display_range": "November 14, 2025",
+      "end": "2025-11-14",
+      "href": "advice-2025-11-14.html",
+      "html": "advice-2025-11-14.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-14.md",
+      "start": "2025-11-14",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-14",
+      "title": "Advice \u2014 2025-11-14"
+    },
+    {
+      "date_key": "2025-11-15",
+      "dates": [
+        "2025-11-15"
+      ],
+      "display_date": "November 15, 2025",
+      "display_range": "November 15, 2025",
+      "end": "2025-11-15",
+      "href": "advice-2025-11-15.html",
+      "html": "advice-2025-11-15.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-15.md",
+      "start": "2025-11-15",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-15",
+      "title": "Advice \u2014 2025-11-15"
+    },
+    {
+      "date_key": "2025-11-16",
+      "dates": [
+        "2025-11-16"
+      ],
+      "display_date": "November 16, 2025",
+      "display_range": "November 16, 2025",
+      "end": "2025-11-16",
+      "href": "advice-2025-11-16.html",
+      "html": "advice-2025-11-16.html",
+      "html_exists": true,
+      "kind": "advice",
+      "source": "markdown/advice-2025-11-16.md",
+      "start": "2025-11-16",
+      "suffix": "",
+      "theme": "Advice \u2014 2025-11-16",
+      "title": "Advice \u2014 2025-11-16"
+    },
+    {
+      "date_key": "2025-10",
+      "dates": [],
+      "display_date": "October 15, 2025",
+      "display_range": "October 15-December 15, 2025",
+      "end": "2025-12-15",
+      "href": "quarter-plan-2025-10.html",
+      "html": "quarter-plan-2025-10.html",
+      "html_exists": true,
+      "kind": "quarter-plan",
+      "source": "markdown/quarter-plan-2025-10.md",
+      "start": "2025-10-15",
+      "suffix": "",
+      "theme": "Build a sub-20 5k, nordic readiness, and strength PRs",
+      "title": "About me"
+    },
+    {
+      "date_key": "2025-11-10",
+      "dates": [
+        "2025-11-10",
+        "2025-11-11",
+        "2025-11-12",
+        "2025-11-13",
+        "2025-11-14",
+        "2025-11-15",
+        "2025-11-16"
+      ],
+      "display_date": "November 10, 2025",
+      "display_range": "November 10-16, 2025",
+      "end": "2025-11-16",
+      "href": "week-plan-2025-11-10.html",
+      "html": "week-plan-2025-11-10.html",
+      "html_exists": true,
+      "kind": "week-plan",
+      "source": "markdown/week-plan-2025-11-10.md",
+      "start": "2025-11-10",
+      "suffix": "",
+      "theme": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy",
+      "title": "Week of 2025-11-10 \u2014 VO\u2082 Development & Economy"
+    }
+  ],
+  "generated_at": "2026-06-23T14:51:48-04:00",
+  "training_log": {
+    "entries": [
+      {
+        "date": "2025-11-16",
+        "display_date": "November 16, 2025",
+        "href": "training-log.html",
+        "label": "Threshold ladder plus core"
+      },
+      {
+        "date": "2025-11-15",
+        "display_date": "November 15, 2025",
+        "href": "training-log.html",
+        "label": "Long aerobic progression"
+      },
+      {
+        "date": "2025-11-14",
+        "display_date": "November 14, 2025",
+        "href": "training-log.html",
+        "label": "Restoration plus strength"
+      }
+    ],
+    "href": "training-log.html",
+    "html_exists": true,
+    "latest": {
+      "date": "2025-11-16",
+      "display_date": "November 16, 2025",
+      "href": "training-log.html",
+      "label": "Threshold ladder plus core"
+    },
+    "source": "markdown/training-log.md",
+    "title": "Training Log"
+  }
+}
