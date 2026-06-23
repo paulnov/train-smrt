@@ -29,7 +29,7 @@ I like my advice grounded in physiology and evidence, hence the relatively techn
 1. Edit `markdown/notes-on-user.md` with background info on your experience and your goals.
 2. Create a `markdown/quarter-plan-YYYY-MM.md` with goals, constraints, and target events. Add an `app-index` block if you want the homepage to show a specific title and date range. Or just skip this step and narrate your plan to Codex in step 3.
 3. In Codex / Claude Code, ask the coach to make you a draft plan for the quarter. Negotiate / discuss until you're happy with it.
-4. Ask the coach to draft your first weekly plan in `markdown/week-plan-YYYY-MM-DD.md`, providing any schedule or travel constraints that need to be considered.
+4. Ask the coach to draft your first weekly plan, providing any schedule or travel constraints that need to be considered.
 5. Review, discuss, make it work to your liking. I never edit the weekly markdown files directly, I just talk to the AI like I would with a real coach and the AI updates the plan.
 6. **Get outside and follow the plan!**
 7. Log completed workouts in the weekly plan's report sections. It's good to put a lot of information here, because this will be preserved for later instances, while the command-line interaction won't be.
