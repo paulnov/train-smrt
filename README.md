@@ -6,8 +6,6 @@ This repo structure puts all this info into a GPT context window to **massively 
 
 **TL;DR for everything below: Clone repo, run Codex, start talking.**
 
-Markdown files are the editable source of truth. Generated HTML files at the repository root are the readable training-plan surface.
-
 <figure>
   <img src="assets/train-readme.png" alt="Training analysis that actually makes sense">
 </figure>
