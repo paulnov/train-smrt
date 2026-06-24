@@ -10,6 +10,12 @@ This repo structure puts all this info into a GPT context window to **massively 
   <img src="assets/train-readme.png" alt="Training analysis that actually makes sense">
 </figure>
 
+## How it works
+
+You make a quarterly plan with some goals. Talk it over with the AI.
+
+The AI structures it into a series of weekly and daily plans. You follow as you can, and give freeform reports on how its going. The AI analyzes your workouts in as much detail as you want and adjusts the forward plans appropriately. Everything is flexible. Dial things up or down whenever you want, while getting decent guidance on what's reasonable. Build around travel plans or constraints. Get advice in the style and frequency that works for you.
+
 ## Why this beats Strava / Garmin AI coaches
 
 The app platforms want to generate coaching advice entirely from app data. This would be cool, but it seems hopeless to me, because the subjective info you share with a coach is essential. Maybe you took it easy because you were feeling sick, or it was deathly hot, or you were running on boulders, or you went fast because you were running with a friend or accidentally coded your ride as a run.
